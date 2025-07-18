@@ -1,0 +1,19 @@
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.ontime {
+  background-color: #4CAF50; /* Green */
+}
+
+.delayed {
+  background-color: #f44336; /* Red */
+}
+
+.missed {
+  background-color: #ff9800; /* Orange */
+}

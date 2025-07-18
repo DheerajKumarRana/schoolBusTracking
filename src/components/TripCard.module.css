@@ -1,0 +1,38 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  width: 375px;
+  box-sizing: border-box;
+}
+
+.date {
+  font-weight: bold;
+}
+
+.details p {
+  margin: 0;
+}
+
+.status {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.ontime {
+  background-color: #4CAF50; /* Green */
+}
+
+.delayed {
+  background-color: #f44336; /* Red */
+}
+
+.missed {
+  background-color: #ff9800; /* Orange */
+}
