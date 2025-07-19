@@ -6,11 +6,13 @@ import ChildInfoCard from '../../components/ChildInfoCard';
 import Loader from '../../components/Loader';
 import { getBusDetails } from '../../services/busService';
 import Button from '../../components/Button';
+import { useRouter } from 'next/navigation';
 
 const DashboardPage = () => {
   const [busDetails, setBusDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const router = useRouter();
 
   const child = {
     name: 'John Doe',
@@ -35,6 +37,10 @@ const DashboardPage = () => {
     fetchBusDetails();
   }, [child.busId]);
 
+  const handleSetNotification = () => {
+    router.push('/notifications');
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -47,18 +53,26 @@ const DashboardPage = () => {
     <div className={styles.container}>
       <ChildInfoCard child={child} />
       <MapComponent />
-      <div className={styles.info}>
-        <h2>Bus Details</h2>
-        {busDetails ? (
-          <>
-            <p>Driver: {busDetails.driverName}</p>
-            <p>Bus Number: {busDetails.busNumber}</p>
-          </>
-        ) : (
-          <p>No bus details available.</p>
-        )}
-        <Button fullWidth>Set Notification Preferences</Button>
+      <div className={styles.details}>
+        <div className={styles.eta}>
+          <p>Estimated Arrival</p>
+          <p>15 mins</p>
+        </div>
+        <div className={styles.busInfo}>
+          <h2>Bus Details</h2>
+          {busDetails ? (
+            <>
+              <p>Driver: {busDetails.driverName}</p>
+              <p>Bus Number: {busDetails.busNumber}</p>
+            </>
+          ) : (
+            <p>No bus details available.</p>
+          )}
+        </div>
       </div>
+      <Button onClick={handleSetNotification} fullWidth>
+        Set Notification Preferences
+      </Button>
     </div>
   );
 };

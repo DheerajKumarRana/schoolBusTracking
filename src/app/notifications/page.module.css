@@ -11,6 +11,24 @@
 .dnd {
   margin-top: 2rem;
   text-align: center;
+  width: 100%;
+}
+
+.timeInputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.timeInputs input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.timeInputs span {
+  margin: 0 1rem;
 }
 
 .saveButton {

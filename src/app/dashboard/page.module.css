@@ -8,22 +8,29 @@
   box-sizing: border-box;
 }
 
-.info {
-  margin-top: 1rem;
+.details {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+  margin: 1rem 0;
 }
 
-.info h2 {
+.eta {
+  text-align: center;
+}
+
+.eta p {
+  margin: 0;
+}
+
+.busInfo {
+  text-align: right;
+}
+
+.busInfo h2 {
   margin-top: 0;
 }
 
-.info button {
-  width: 100%;
-  padding: 1rem;
-  background-color: #2196F3;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 1rem;
+.busInfo p {
+  margin: 0;
 }

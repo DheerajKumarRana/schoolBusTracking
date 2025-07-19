@@ -22,7 +22,16 @@ const ProfilePage = () => {
     const fetchTrips = async () => {
       try {
         const childTrips = await getTripsForChild(child.id);
-        setTrips(childTrips);
+        // Mock data if no trips are returned from firebase
+        if (childTrips.length === 0) {
+          setTrips([
+            { id: 1, date: '2024-07-28', pickup: '08:00 AM', drop: '04:00 PM', status: 'On Time' },
+            { id: 2, date: '2024-07-27', pickup: '08:05 AM', drop: '04:15 PM', status: 'Delayed' },
+            { id: 3, date: '2024-07-26', pickup: 'N/A', drop: 'N/A', status: 'Missed' },
+          ]);
+        } else {
+          setTrips(childTrips);
+        }
       } catch (err) {
         setError('Failed to fetch trip history.');
         console.error(err);
@@ -46,11 +55,13 @@ const ProfilePage = () => {
     <div className={styles.container}>
       <ChildInfoCard child={child} />
       <h2 className={styles.tripHistory}>Trip History</h2>
-      {trips.length > 0 ? (
-        trips.map((trip) => <TripCard key={trip.id} trip={trip} />)
-      ) : (
-        <p>No trip history available.</p>
-      )}
+      <div className={styles.tripList}>
+        {trips.length > 0 ? (
+          trips.map((trip) => <TripCard key={trip.id} trip={trip} />)
+        ) : (
+          <p>No trip history available.</p>
+        )}
+      </div>
     </div>
   );
 };

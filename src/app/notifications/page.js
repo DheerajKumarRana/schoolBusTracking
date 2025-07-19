@@ -56,22 +56,22 @@ const NotificationsPage = () => {
       {settings && (
         <>
           <NotificationToggle
-            label="Bus Leaves"
+            label="Bus Leaves School"
             enabled={settings.busLeaves}
             onToggle={() => handleToggle('busLeaves')}
           />
           <NotificationToggle
-            label="Bus Arrives"
+            label="Bus is 5 minutes away"
             enabled={settings.busArrives}
             onToggle={() => handleToggle('busArrives')}
           />
           <NotificationToggle
-            label="Child Boards"
+            label="Child Boards Bus"
             enabled={settings.boards}
             onToggle={() => handleToggle('boards')}
           />
           <NotificationToggle
-            label="Child Alights"
+            label="Child Alights Bus"
             enabled={settings.alights}
             onToggle={() => handleToggle('alights')}
           />
@@ -80,7 +80,11 @@ const NotificationsPage = () => {
       <div className={styles.dnd}>
         <h2>Do Not Disturb</h2>
         <p>Set a time range to mute notifications.</p>
-        {/* Add time range inputs here */}
+        <div className={styles.timeInputs}>
+          <input type="time" />
+          <span>-</span>
+          <input type="time" />
+        </div>
       </div>
       <Button onClick={handleSave} fullWidth>
         Save
