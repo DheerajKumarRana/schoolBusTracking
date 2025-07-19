@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './page.module.css';
 import { useRouter } from 'next/navigation';
 import Button from '../components/Button';
+import Link from 'next/link';
 
 const LoginPage = () => {
   const router = useRouter();
@@ -23,7 +24,7 @@ const LoginPage = () => {
         </Button>
         <div className={styles.links}>
           <a href="#">Forgot Password?</a>
-          <a href="#">Sign Up</a>
+          <Link href="/signup">Sign Up</Link>
         </div>
       </form>
     </div>
